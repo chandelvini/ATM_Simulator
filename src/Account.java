@@ -146,7 +146,35 @@ public class Account {
             }
         }
         return null;
+
     }
+
+    public void changePin()
+    {
+        sc.nextLine();
+        System.out.println("ENter old pin");
+        String old_pin = sc.nextLine();
+        if(old_pin.equals(pin))
+        {
+            System.out.println("Enter new pin");
+            String new_pin = sc.nextLine();
+            if(new_pin.matches("\\d{4}")) {
+                pin = new_pin;
+                System.out.println("new pin successfully set");
+            }else {
+                System.out.println("Pin must be 4 digit only");
+            }
+
+
+        }
+        else {
+            System.out.println("Wrong Pin");
+        }
+
+
+    }
+
+
 
 
 }

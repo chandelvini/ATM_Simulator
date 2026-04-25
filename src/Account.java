@@ -1,3 +1,5 @@
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -9,6 +11,8 @@ public class Account {
      private String pin;
     // private int amt;
 
+
+    ArrayList<String> transactions = new ArrayList<>();
     Scanner sc = new Scanner(System.in);
      public  Account()
      {
@@ -38,6 +42,8 @@ public class Account {
     public String getPin(){
          return pin;
     }
+
+
 
     public void register()
     {
@@ -110,6 +116,12 @@ public class Account {
              balance = balance + amt;
              System.out.println("✅ Amount Deposited Successfully");
              System.out.println("Current Balance: " + balance);
+
+             LocalDateTime now  = LocalDateTime.now();
+             DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MMM-yyyy hh:mm a");
+             String time = now.format(formatter);
+
+             transactions.add("[DEPOSIT]  " + amt + "  | Balance: " + balance + "  | " + time);
          }else
          {
              System.out.println("Invalid amount");
@@ -128,6 +140,12 @@ public class Account {
              balance = balance - amt;
              System.out.println("✅ Withdraw Successful");
              System.out.println("Remaining Balance: " + balance);
+
+             LocalDateTime now  = LocalDateTime.now();
+             DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MMM-yyyy hh:mm a");
+             String time = now.format(formatter);
+
+             transactions.add("[WITHDRAW]  amt  | Balance: balance  | time");
 
          } else if (amt < 0) {
              System.out.println("Invalid amt");
@@ -172,6 +190,25 @@ public class Account {
         }
 
 
+    }
+
+    public void show()
+    {
+        if(transactions.isEmpty())
+        {
+            System.out.println("Transaction not yet");
+        }else {
+            int count = 1;
+            System.out.println("===== Transaction History =====");
+            for(String tran : transactions)
+            {
+
+                System.out.println(count + ". " +tran);
+                count++;
+
+            }
+            System.out.println("=================================");
+        }
     }
 
 

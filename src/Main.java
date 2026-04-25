@@ -24,8 +24,9 @@ Account currentUser = null;
             System.out.println("4. Withdraw");
             System.out.println("5. Balance Check");
             System.out.println("6. ChangePin");
-            System.out.println("7. Logged Out");
-            System.out.println("8.Exit");
+            System.out.println("7. Transaction History");
+            System.out.println("8. Logged Out");
+            System.out.println("9.Exit");
 
 
             System.out.print("Enter your choice: ");
@@ -110,6 +111,18 @@ Account currentUser = null;
                 }
                 case 7:
                 {
+
+
+                        if(currentUser != null) {
+                            currentUser.show();
+                        } else {
+                            System.out.println("Login First");
+                        }
+                        break;
+
+                }
+                case 8:
+                {
                     if(currentUser != null)
                     {
                         currentUser = null;
@@ -120,7 +133,7 @@ Account currentUser = null;
                     break;
                 }
 
-                case 8:
+                case 9:
                 {
 
                     System.out.println("Thank you for using ATM");

@@ -1,48 +1,34 @@
-# 💳 ATM Simulator System
+# ATM Management System (Java)
 
-## 📌 Project Description
-This is a console-based ATM Simulator built using Core Java.  
-The project demonstrates Object-Oriented Programming concepts like classes, objects, encapsulation, and modular design.
-
----
+## 📌 Description
+This is a console-based ATM simulation project developed using Java.  
+It allows users to perform basic banking operations with proper validation and transaction tracking.
 
 ## 🚀 Features
-- Account Registration
+- User Registration & Login
 - Deposit Money
 - Withdraw Money
-- Balance Enquiry
-- Input Validation
-- Menu-driven system
-
----
+- Balance Check
+- Change PIN
+- Transaction History with Date & Time
+- Clean and user-friendly console interface
 
 ## 🛠️ Technologies Used
-- Core Java
+- Java
 - OOP Concepts
-
----
+- ArrayList
 
 ## 📂 Project Structure
-- `Account.java` → Handles account details and operations  
-- `Main.java` → Contains menu-driven logic  
-
----
+- Main.java → Handles menu and user interaction
+- Account.java → Handles account operations and logic
 
 ## ▶️ How to Run
-1. Open project in IntelliJ / Eclipse  
-2. Run `Main.java`  
-3. Follow menu instructions  
+1. Compile the program
+2. Run Main.java
+3. Follow menu options
 
----
-
-## 🎯 Future Enhancements
-- PIN authentication
-- Login system
-- Fund transfer
-- Mini statement
-- Bill payment & recharge
-
----
-
-## 👩‍💻 Author
-Vinita Chandel
+## 📈 Future Enhancements
+- Database integration (MySQL)
+- Transfer money feature
+- Mini statement (last 5 transactions)
+- Spring Boot API integration

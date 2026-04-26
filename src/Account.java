@@ -145,8 +145,7 @@ public class Account {
              DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MMM-yyyy hh:mm a");
              String time = now.format(formatter);
 
-             transactions.add("[WITHDRAW]  amt  | Balance: balance  | time");
-
+             transactions.add("[WITHDRAW]  " + amt + "  | Balance: " + balance + "  | " + time);
          } else if (amt < 0) {
              System.out.println("Invalid amt");
 
@@ -209,6 +208,28 @@ public class Account {
             }
             System.out.println("=================================");
         }
+    }
+
+    public void MiniStatement()
+    {
+        int size = transactions.size();
+        int start;
+        if(size > 5)
+        {
+            start = size-5;
+        }
+        else {
+            start = 0;
+        }
+        int count = 1;
+        System.out.println("===== MINI STATEMENT ===== ");
+        for(int i=start; i<size; i++)
+        {
+            System.out.println(count + ". " + transactions.get(i));
+            count++;
+        }
+        System.out.println("=================================");
+
     }
 
 

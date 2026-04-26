@@ -25,8 +25,9 @@ Account currentUser = null;
             System.out.println("5. Balance Check");
             System.out.println("6. ChangePin");
             System.out.println("7. Transaction History");
-            System.out.println("8. Logged Out");
-            System.out.println("9.Exit");
+            System.out.println("8. Mini Statement");
+            System.out.println("9. Logged Out");
+            System.out.println("10.Exit");
 
 
             System.out.print("Enter your choice: ");
@@ -43,28 +44,36 @@ Account currentUser = null;
                     list.add(acc);
                     break;
                 }
-                case 2:
-                {
-                    System.out.println("Enter card number");
+                case 2: {
+                    int attempt = 0;
+                    while (attempt < 3) {
+                        System.out.println("Enter card number");
 
-                    String input = sc.nextLine();
+                        String input = sc.nextLine();
 
-                    System.out.println("ENter pin");
-                     String pinn = sc.nextLine();
+                        System.out.println("ENter pin");
+                        String pinn = sc.nextLine();
 
 
-                    Account foundAcc = Account.findAccount(list, input,pinn);
+                        Account foundAcc = Account.findAccount(list, input, pinn);
 
-                    if(foundAcc != null)
-                    {
-                        currentUser = foundAcc;
-                        System.out.println("Login Successfully");
-                    }else {
-                        System.out.println("Account Not Found");
+                        if (foundAcc != null) {
+                            currentUser = foundAcc;
+                            System.out.println("Login Successfully");
+                            break;
+                        } else {
+                             attempt++;
+                            System.out.println("wrong credential try again" + " Attempt left" + (3-attempt));
+
+                        }
                     }
-                    break;
+                    if(attempt == 3) {
+                        System.out.println("Account Blocked");
+                    }
+                        break;
 
                 }
+
                 case 3:
                 {
 
@@ -121,7 +130,18 @@ Account currentUser = null;
                         break;
 
                 }
-                case 8:
+                case 8: {
+                    if(currentUser !=null)
+                    {
+                        currentUser.MiniStatement();
+                    }
+                    else {
+                        System.out.println("No transaction yet");
+                    }
+
+                    break;
+                }
+                case 9:
                 {
                     if(currentUser != null)
                     {
@@ -133,7 +153,7 @@ Account currentUser = null;
                     break;
                 }
 
-                case 9:
+                case 10:
                 {
 
                     System.out.println("Thank you for using ATM");
